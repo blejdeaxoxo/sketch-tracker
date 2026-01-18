@@ -1,0 +1,13 @@
+# Ignore dependency folders
+node_modules/
+
+# Ignore the uploads (but keep the folder structure)
+uploads/*
+!uploads/.gitkeep
+
+# Ignore environment variables (Safety first!)
+.env
+
+# Ignore Python cache (since we used Python scripts)
+__pycache__/
+*.pyc
