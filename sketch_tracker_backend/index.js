@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const db = require('./db'); // Import our database connection
+const db = require('./db'); 
 const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/projects');
 const snapshotRoutes = require('./routes/snapshots');
@@ -11,16 +11,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors()); // Allow requests from other devices (like your phone)
-app.use(express.json()); // Allow the server to read JSON data
+app.use(cors());
+app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/snapshots', snapshotRoutes);
 app.use('/api/stats', statsRoutes);
 
-// IMPORTANT: Make the 'uploads' folder public so the app can see images
-// Access images via: http://YOUR_PC_IP:3000/uploads/filename.jpg
+
 app.use('/uploads', express.static('uploads'));
 
 // Test Route 1: Check if Server is running
